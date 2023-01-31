@@ -19,9 +19,14 @@ namespace Business.Concrete
             this.productDal = productDal;
         }
 
+        public void Add(Product product)
+        {
+            productDal.Add(product);
+        }
+
         public List<Product> GetAll()
         {
-           return productDal.GetAll();   
+            return productDal.GetAll();
         }
 
         public List<Product> GetAllByCategoryId(int id)
@@ -29,9 +34,14 @@ namespace Business.Concrete
             return productDal.GetAll(p => p.CategoryId == id);
         }
 
+        public Product GetById(int productId)
+        {
+            return productDal.Get(p => p.ProductId == productId);
+        }
+
         public List<Product> GetByUnitPrice(decimal min, decimal max)
         {
-            return productDal.GetAll(p=>p.UnitPrice>=min &&p.UnitPrice<=max);   
+            return productDal.GetAll(p => p.UnitPrice >= min && p.UnitPrice <= max);
         }
 
         public List<ProductDetailDto> GetProductDetails()
