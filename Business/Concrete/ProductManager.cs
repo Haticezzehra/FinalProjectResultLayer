@@ -33,7 +33,7 @@ namespace Business.Concrete
             return new SuccessResult("Ürün eklendi");
         }
 
-        public List<Product> GetAll()
+       public IDataResult<List<Product>> GetAll()
         {
             throw new NotImplementedException();
         }
