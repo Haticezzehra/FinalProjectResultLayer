@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTO_s;
@@ -19,10 +20,37 @@ namespace Business.Concrete
             this.productDal = productDal;
         }
 
-        public void Add(Product product)
+        public IResult Add(Product product)
         {
             productDal.Add(product);
+            return new Result(true,"Urun eklendi");
         }
+
+        public List<Product> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetAllByCategoryId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product GetById(int productId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetByUnitPrice(decimal min, decimal max)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            throw new NotImplementedException();
+        }
+    }
 
         public List<Product> GetAll()
         {
@@ -48,5 +76,7 @@ namespace Business.Concrete
         {
             return productDal.GetProductDetails();
         }
+
+        
     }
 }

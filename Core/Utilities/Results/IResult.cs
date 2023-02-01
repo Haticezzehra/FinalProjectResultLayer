@@ -5,8 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Core.Utilities.Results
-{
-    internal interface IResult
+{//Temel voidler için başlangıç.
+    public interface IResult
     {
+        //işlem sonucu ve kullanıcıyı bilgilendirme mesajı.
+        bool Success { get; }
+        string Message { get; }
     }
 }

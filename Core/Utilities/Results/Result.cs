@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Results
 {
-    internal class Result
+    public class Result : IResult
     {
+        public bool Success { get; }
+
+        public string Message { get; }
     }
 }
