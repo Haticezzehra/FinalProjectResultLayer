@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Business.Constants
 {
-   public static class Messages
+    public static class Messages
     {
-        internal static string  MaintenanceTime="Sistem bakımda";
-        internal static string ProductListed = "Ürünler listelendi";
+        public static string MaintenanceTime = "Sistem bakımda";
+        public static string ProductListed = "Ürünler listelendi";
 
         //direk sınıf adıyla çağıralım newlemeyelim diye static yaptık sınıfımızı.
         public static string ProductAdded = "Ürün eklendi";
