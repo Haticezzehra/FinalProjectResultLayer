@@ -35,32 +35,37 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetAll()
         {
-            return new SuccessDataResult<List<Product>>(productDal.GetAll(),"Ürünler Listelendi");
+            if (DateTime.Now.Hour == 22)
+            {
+                return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
+            }
+
+            return new SuccessDataResult<List<Product>>(productDal.GetAll(), Messages.ProductListed);
         }
 
-       
+
 
         public IDataResult<Product> GetById(int productId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Product>(productDal.Get(p => p.ProductId == productId));
         }
 
         public IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Product>>(productDal.GetAll(p => p.UnitPrice >= min && p.UnitPrice <= max));
         }
 
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<ProductDetailDto>>(productDal.GetProductDetails());
         }
 
-        IDataResult<List<Product>> IProductService.GetAllByCategoryId(int id)
+        public IDataResult<List<Product>> GetAllByCategoryId(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Product>>(productDal.GetAll(p => p.CategoryId == id));
         }
     }
-    }
+}
 
-      
-        
+
+
