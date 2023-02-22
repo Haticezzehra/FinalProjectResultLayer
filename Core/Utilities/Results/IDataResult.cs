@@ -1,6 +1,9 @@
-﻿namespace Business.Abstract
+﻿using Core.Utilities.Results;
+
+namespace Core.Utilities.Results
 {
-    public interface IDataResult
+    public interface IDataResult<T>:IResult
     {
+        T Data { get; }
     }
 }
